@@ -24,6 +24,7 @@ pwd
 
 yesflag=0
 if [ $# -eq 1 ]; then
+	echo $1
 	if [ $1 = '-y' ]; then
 		yesflag=1
 	fi
