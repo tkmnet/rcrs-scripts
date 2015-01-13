@@ -39,6 +39,7 @@ $WGET https://raw.githubusercontent.com/tkmnet/rcrs-scripts/master/fix-roborescu
 sh ./fix-roborescue.sh -y
 rm ./fix-roborescue.sh
 
+ant complete-build
 
 echo "Done."
 echo "RCRS Server is installed to '`pwd -P`'"
