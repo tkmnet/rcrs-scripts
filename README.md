@@ -12,7 +12,7 @@ sh ./install-roborescue.sh
 if you do not using wget, you can use `curl -O` as alternative `wget`.
 
 ## Fix RoboCupRescueSimulation server for Java8
-*It is already applied this script, if you installed server using "install-roborescue.sh".*
+*if you installed server using "install-roborescue.sh", it is already applied this script.*
 
 Runs commands on the server's root.
 ```
