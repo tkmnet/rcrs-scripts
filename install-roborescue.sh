@@ -36,7 +36,7 @@ rm ./roborescue.tar.gz
 cd ./roborescue
 
 $WGET https://raw.githubusercontent.com/tkmnet/rcrs-scripts/master/fix-roborescue.sh
-sh ./fix-roborescue.sh
+sh ./fix-roborescue.sh -y
 rm ./fix-roborescue.sh
 
 
