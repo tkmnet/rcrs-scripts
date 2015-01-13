@@ -5,7 +5,7 @@ if [ ! -x `which apt-get` ]; then
 	exit
 fi
 
-if [ ! -x `which javac` ]; then
+if [ -x `which javac` ]; then; else
 	if [ `javac -version 2>&1 | grep -o 'javac 1.8.*' | wc -l` != 1 ]; then
 		echo "[!] This script repuire java8."
 		echo "Please install OracleJDK 8."
@@ -14,7 +14,7 @@ if [ ! -x `which javac` ]; then
 fi
 
 WGET='wget'
-if [ ! -x `which wget` ]; then
+if [ -x `which wget` ]; then; else
 	if [ -x `which curl` ]; then
 		WGET='curl -O'
 	else
@@ -24,7 +24,7 @@ if [ ! -x `which wget` ]; then
 	fi
 fi
 
-if [ ! -x `which ant`  -o ! -x `which xterm` -o ! -x `which tar` -o ! -x `which gzip` ]; then
+if [ -x `which ant`  -a -x `which xterm` -a -x `which tar` -a -x `which gzip` ]; then; else
 	sudo apt-get install -y ant xterm tar gzip
 	sh -c ./install-roborescue.sh
 	exit
