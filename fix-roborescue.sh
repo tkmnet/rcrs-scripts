@@ -5,18 +5,18 @@ if [ ! -x `which wget` ]; then
 	if [ -x `which curl` ]; then
 		WGET='curl -O'
 	else
-		echo "This script require wget or curl."
+		echo "[!] This script require wget or curl."
 		exit
 	fi
 fi
 
 if [ -e .var01.tkmnet.fixed ]; then
-echo "This directory is already fixed."
+echo "[!] This directory is already fixed."
 exit
 fi
 
 if [ ! -d boot -o ! -d build-tools -o ! -d modules -o ! -d supplement -o ! -e build.xml ]; then
-echo "This directory is not roborescue-server root."
+echo "[!] This directory is not roborescue-server root."
 exit
 fi
 
@@ -41,8 +41,8 @@ find ./maps -type d -name "config" | xargs cp ./boot/config/gis.cfg
 cd boot
 mv start.sh start.sh.org
 mv functions.sh functions.sh.org
-$WGET https://raw.githubusercontent.com/tkmnet/rcrs-scripts/master/boot-scripts/functions.sh 2> /dev/null > /dev/null
-$WGET https://raw.githubusercontent.com/tkmnet/rcrs-scripts/master/boot-scripts/start.sh 2> /dev/null > /dev/null
+$WGET https://raw.githubusercontent.com/tkmnet/rcrs-scripts/master/boot-scripts/functions.sh  >/dev/null 2>&1
+$WGET https://raw.githubusercontent.com/tkmnet/rcrs-scripts/master/boot-scripts/start.sh >/dev/null 2>&1
 chmod a+x start.sh
 cd ..
 
