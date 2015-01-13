@@ -18,16 +18,16 @@ if [ ! -x `which wget` ]; then
 	if [ -x `which curl` ]; then
 		WGET='curl -O'
 	else
-		sudo apt-get install wget
+		sudo apt-get install -y wget
 		sh -c ./install-roborescue.sh
 		exit
 	fi
 fi
 
 if [ ! -x `which ant`  -o ! -x `which xterm` -o ! -x `which tar` -o ! -x `which gzip` ]; then
-		sudo apt-get install ant xterm tar gzip
-		sh -c ./install-roborescue.sh
-		exit
+	sudo apt-get install -y ant xterm tar gzip
+	sh -c ./install-roborescue.sh
+	exit
 fi
 
 $WGET http://downloads.sourceforge.net/project/roborescue/2014/server/roborescue.tar.gz
