@@ -52,6 +52,8 @@ find ./maps -type d -name "config" | xargs cp ./boot/config/gis.cfg
 
 cd boot
 mv start.sh start.sh.org
+mv start-precompute.sh start-precompute.sh.org
+mv start-comprun.sh start-comprun.sh.org
 mv functions.sh functions.sh.org
 $WGET https://raw.githubusercontent.com/tkmnet/rcrs-scripts/master/boot-scripts/functions.sh  >/dev/null 2>&1
 $WGET https://raw.githubusercontent.com/tkmnet/rcrs-scripts/master/boot-scripts/start.sh >/dev/null 2>&1
