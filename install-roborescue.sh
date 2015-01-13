@@ -32,6 +32,7 @@ fi
 
 $WGET http://downloads.sourceforge.net/project/roborescue/2014/server/roborescue.tar.gz
 tar zxvf ./roborescue.tar.gz
+rm ./roborescue.tar.gz
 cd ./roborescue
 
 $WGET https://raw.githubusercontent.com/tkmnet/rcrs-scripts/master/fix-roborescue.sh
