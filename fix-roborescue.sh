@@ -1,8 +1,8 @@
 #!/bin/sh
 
 WGET='wget'
-if [ ! -x `which wget` ]; then
-	if [ -x `which curl` ]; then
+if [ ! -x `which wget||echo @` ]; then
+	if [ -x `which curl||echo @` ]; then
 		WGET='curl -O'
 	else
 		echo "[!] This script require wget or curl."
@@ -15,7 +15,7 @@ echo "[!] This directory is already fixed."
 exit
 fi
 
-if [ ! -d boot -o ! -d build-tools -o ! -d modules -o ! -d supplement -o ! -e build.xml ]; then
+if ! [ -d boot -a -d build-tools -a -d modules -a -d supplement -a -e build.xml ]; then
 echo "[!] This directory is not roborescue-server root."
 exit
 fi
