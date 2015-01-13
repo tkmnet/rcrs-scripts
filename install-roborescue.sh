@@ -16,7 +16,7 @@ fi
 WGET='wget'
 if ! [ -x `which wget||echo @` ]; then
 	echo test
-	if [ -x `which curl` ]; then
+	if [ -x `which curl||echo @` ]; then
 		WGET='curl -O'
 	else
 		sudo apt-get install -y wget
