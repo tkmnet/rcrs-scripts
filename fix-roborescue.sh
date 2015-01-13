@@ -55,7 +55,9 @@ mv start.sh start.sh.org
 mv functions.sh functions.sh.org
 $WGET https://raw.githubusercontent.com/tkmnet/rcrs-scripts/master/boot-scripts/functions.sh  >/dev/null 2>&1
 $WGET https://raw.githubusercontent.com/tkmnet/rcrs-scripts/master/boot-scripts/start.sh >/dev/null 2>&1
-chmod a+x start.sh
+$WGET https://raw.githubusercontent.com/tkmnet/rcrs-scripts/master/boot-scripts/start-precompute.sh >/dev/null 2>&1
+$WGET https://raw.githubusercontent.com/tkmnet/rcrs-scripts/master/boot-scripts/start-comprun.sh >/dev/null 2>&1
+chmod a+x start*.sh
 cd ..
 
 find ./ -name "build*.xml" | xargs sed -i -e 's/<javac\(.*\)>/<javac\1  encoding="UTF-8">/g'
