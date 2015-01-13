@@ -1,5 +1,15 @@
 #!/bin/sh
 
+WGET='wget'
+if [ ! -x `which wget` ]; then
+	if [ -x `which curl` ]; then
+		WGET='curl -O'
+	else
+		echo "This script require wget or curl."
+		exit
+	fi
+fi
+
 if [ -e .var01.tkmnet.fixed ]; then
 echo "This directory is already fixed."
 exit
@@ -31,8 +41,8 @@ find ./maps -type d -name "config" | xargs cp ./boot/config/gis.cfg
 cd boot
 mv start.sh start.sh.org
 mv functions.sh functions.sh.org
-wget https://gist.githubusercontent.com/tkmnet/d9dba3746d46786508d4/raw/0f509cd9799cc668d8f3609d13e152ebe261c9da/functions.sh 2> /dev/null > /dev/null
-wget https://gist.githubusercontent.com/tkmnet/d9dba3746d46786508d4/raw/004d0c861ab7f212a9f1d281a339034892b03d06/start.sh 2> /dev/null > /dev/null
+$WGET https://raw.githubusercontent.com/tkmnet/rcrs-scripts/master/boot-scripts/functions.sh 2> /dev/null > /dev/null
+$WGET https://raw.githubusercontent.com/tkmnet/rcrs-scripts/master/boot-scripts/start.sh 2> /dev/null > /dev/null
 chmod a+x start.sh
 cd ..
 
