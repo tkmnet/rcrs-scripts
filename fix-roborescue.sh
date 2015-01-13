@@ -21,7 +21,15 @@ exit
 fi
 
 pwd
-if [ $# -eq 1 -a $1 == '-y' ]; then
+
+yesflag=0
+if [ $# -eq 1 ]; then
+	if [ $1 == '-y' ]; then
+		yesflag=1
+	fi
+fi
+
+if [ $yesflag -eq 0 ]; then
 	echo -n 'Really want to fix? [y/N] > '
 	read answer
 else
