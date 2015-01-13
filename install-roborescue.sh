@@ -34,9 +34,10 @@ $WGET http://downloads.sourceforge.net/project/roborescue/2014/server/roborescue
 tar zxvf ./roborescue.tar.gz
 cd ./roborescue
 
-$WGET https://raw.githubusercontent.com/tkmnet/rcrs-scripts/master/fix-roborescue.sh¬
+$WGET https://raw.githubusercontent.com/tkmnet/rcrs-scripts/master/fix-roborescue.sh
 sh ./fix-roborescue.sh
 rm ./fix-roborescue.sh
 
 
 echo "Done."
+echo "RCRS Server is installed to '`pwd -P`'"
