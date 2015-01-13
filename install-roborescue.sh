@@ -24,8 +24,6 @@ if ! [ -x `which wget||echo @` ]; then
 		exit
 	fi
 fi
-echo $WGET
-exit
 
 if ! [ -x `which ant||echo @`  -a -x `which xterm||echo @` -a -x `which tar||echo @` -a -x `which gzip||echo @` ]; then
 	sudo apt-get install -y ant xterm tar gzip
