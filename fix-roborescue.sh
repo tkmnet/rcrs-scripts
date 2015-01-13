@@ -21,8 +21,12 @@ exit
 fi
 
 pwd
-echo -n 'Really want to fix? [y/N] > '
-read answer
+if [ $# -eq 1 -a $1 -eq '-y' ]; then
+	echo -n 'Really want to fix? [y/N] > '
+	read answer
+else
+	answer='y'
+fi
  
 case $answer in
 y)
