@@ -13,7 +13,10 @@ rm -f $LOGDIR/*.log
 startKernel
 startSims
 
+$PIDS > ./server.pids.tmp
+
 echo "Start your agents"
 waitFor $LOGDIR/kernel.log "Kernel has shut down" 30
 
+rm -f ./server.pids.tmp
 kill $PIDS
