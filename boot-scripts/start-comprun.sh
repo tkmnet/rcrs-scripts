@@ -4,8 +4,6 @@ cd `dirname $0`
 
 . functions.sh
 
-rm -f ./server.pids.tmp
-
 processArgs $*
 
 # Delete old logs
