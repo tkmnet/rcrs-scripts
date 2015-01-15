@@ -2,8 +2,6 @@
 
 cd `dirname $0`
 
-rm -f ./server.pids.tmp
-
 . functions.sh
 
 processArgs $*
