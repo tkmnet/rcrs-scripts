@@ -59,6 +59,7 @@ $WGET https://raw.githubusercontent.com/tkmnet/rcrs-scripts/master/boot-scripts/
 $WGET https://raw.githubusercontent.com/tkmnet/rcrs-scripts/master/boot-scripts/start.sh >/dev/null 2>&1
 $WGET https://raw.githubusercontent.com/tkmnet/rcrs-scripts/master/boot-scripts/start-precompute.sh >/dev/null 2>&1
 $WGET https://raw.githubusercontent.com/tkmnet/rcrs-scripts/master/boot-scripts/start-comprun.sh >/dev/null 2>&1
+$WGET https://raw.githubusercontent.com/tkmnet/rcrs-scripts/master/boot-scripts/kill.sh >/dev/null 2>&1
 chmod a+x start*.sh
 chmod a+x kill.sh
 cd ..
