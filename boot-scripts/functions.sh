@@ -2,6 +2,8 @@
 DIR=`pwd`
 BASEDIR="`cd .. && pwd`"
 PIDS=
+DEFAULT_MAP="$BASEDIR/maps/gml/Kobe2013/map"
+DEFAULT_CONFIG="$BASEDIR/boot/config"
 
 # Wait for a regular expression to appear in a file.
 # $1 is the log to check
@@ -54,8 +56,9 @@ function printUsage {
     echo "Usage: $0 [options]"
     echo "Options"
     echo "======="
-    echo "-m    --map       <mapdir>      Set the map directory. Default is \"$BASEDIR/maps/gml/test\""
-    echo "-l    --log       <logdir>      Set the log directory. Default is \"logs\""
+    echo "-m    --map       <mapdir>      Set the map directory. Default is \"$DEFAULT_MAP\""
+    echo "-c    --config    <configdir>   Set the config directory. Default is \"$DEFAULT_CONFIG\""
+    echo "-l    --log       <logdir>      Set the log directory. Default is \"$BASEDIR/boot/logs\""
     echo "-s    --timestamp               Append a timestamp, the team name and map name to the log directory name"
     echo "-t    --team      <teamname>    Set the team name. Default is \"\""
 }
@@ -63,8 +66,8 @@ function printUsage {
 # Process arguments
 function processArgs {
     LOGDIR="logs"
-    MAP="$BASEDIR/maps/gml/Kobe2013/map"
-    CONFIGDIR="$BASEDIR/maps/gml/Kobe2013/config"
+    MAP=$DEFAULT_MAP
+    CONFIGDIR=$DEFAULT_CONFIG
     TEAM=""
     TIMESTAMP_LOGS=""
 
