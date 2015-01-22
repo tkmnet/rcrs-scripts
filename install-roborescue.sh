@@ -19,14 +19,14 @@ if ! [ -x `which wget||echo @` ]; then
 		WGET='curl -O'
 	else
 		sudo apt-get install -y wget
-		sh -c 'sh ./install-roborescue.sh'
+		sh -c "sh $0"
 		exit
 	fi
 fi
 
 if ! [ -x `which ant||echo @`  -a -x `which xterm||echo @` -a -x `which tar||echo @` -a -x `which gzip||echo @` ]; then
 	sudo apt-get install -y ant xterm tar gzip
-	sh -c 'sh ./install-roborescue.sh'
+	sh -c "sh $0"
 	exit
 fi
 
