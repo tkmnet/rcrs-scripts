@@ -196,12 +196,12 @@ echo "waiting for clear to connect..."
     PIDS="$PIDS $!"
 sleep 2
     # sh -c "/bin/sh -c 'java -Xmx512m -cp $CP:$BASEDIR/jars/rescuecore2.jar:$BASEDIR/jars/standard.jar:$BASEDIR/jars/sample.jar -Dlog4j.log.dir=$LOGDIR rescuecore2.LaunchComponents sample.SampleViewer -c $CONFIGDIR/viewer.cfg $TEAM_NAME_ARG $* 2>&1 | tee $LOGDIR/viewer-out.log'" &
-    PIDS="$PIDS $!"
+    # PIDS="$PIDS $!"
 
 
 
     # Wait for all simulators to start
-echo "waiting for viewer to connect..."
-    waitFor $LOGDIR/viewer-out.log "success"
+# echo "waiting for viewer to connect..."
+    # waitFor $LOGDIR/viewer-out.log "success"
 
 }
