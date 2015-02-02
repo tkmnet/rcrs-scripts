@@ -1,7 +1,5 @@
 #!/bin/sh
 
-cd `dirname $0`
-
 WGET='wget'
 if ! [ -x `which wget||echo @` ]; then
 	if [ -x `which curl||echo @` ]; then
@@ -23,10 +21,12 @@ ADKDIR=`find -maxdepth 1 -mindepth 1 -type d | sed -E 's%./%%g'`
 rm ./adk-workspace.zip
 cd $ADKDIR
 
+cd workspace
 GITHUB_CONTENTS='https://raw.githubusercontent.com/tkmnet/rcrs-scripts/master/adk-scripts/'
 $WGET ${GITHUB_CONTENTS}.build.sh
 $WGET ${GITHUB_CONTENTS}.start.sh
 $WGET ${GITHUB_CONTENTS}.libs-update.sh
+cd ..
 
 cd ..
 mv $ADKDIR ../
