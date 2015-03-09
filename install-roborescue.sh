@@ -13,7 +13,7 @@ if ! [ -x `which javac||echo @` ]; then
 	fi
 fi
 
-WGET='wget'
+WGET='wget --no-check-certificate'
 if ! [ -x `which wget||echo @` ]; then
 	if [ -x `which curl||echo @` ]; then
 		WGET='curl -O'
