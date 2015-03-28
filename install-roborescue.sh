@@ -1,30 +1,37 @@
 #!/bin/sh
 
-if ! [ -x `which apt-get||echo @` ]; then
-	echo "[!] This script repuire apt-get."
-	exit
-fi
-
-if ! [ -x `which javac||echo @` ]; then
-	if [ `javac -version 2>&1 | grep -o 'javac 1.8.*' | wc -l` != 1 ]; then
-		echo "[!] This script repuire java8."
-		echo "Please install OracleJDK 8."
-		exit
-	fi
-fi
-
 WGET='wget --no-check-certificate'
 if ! [ -x `which wget||echo @` ]; then
 	if [ -x `which curl||echo @` ]; then
 		WGET='curl -O'
 	else
+		if ! [ -x `which apt-get||echo @` ]; then
+			echo "[!] This script repuire apt-get."
+			exit
+		fi
 		sudo apt-get install -y wget
 		sh -c "sh $0"
 		exit
 	fi
 fi
 
+if ! [ -x `which javac||echo @` ]; then
+	if [ `javac -version 2>&1 | grep -o 'javac 1.8.*' | wc -l` != 1 ]; then
+		echo "[!] This script repuire java8."
+		echo "Please install OracleJDK 8."
+		cd /tmp
+		$WGET https://raw.githubusercontent.com/tkmnet/Tools/master/install-oracle-jdk.sh
+		sh install-oracle-jdk.sh
+		sh -c "sh $0"
+		exit
+	fi
+fi
+
 if ! [ -x `which ant||echo @`  -a -x `which xterm||echo @` -a -x `which tar||echo @` -a -x `which gzip||echo @` ]; then
+	if ! [ -x `which apt-get||echo @` ]; then
+		echo "[!] This script repuire apt-get."
+		exit
+	fi
 	sudo apt-get install -y ant xterm tar gzip
 	sh -c "sh $0"
 	exit
