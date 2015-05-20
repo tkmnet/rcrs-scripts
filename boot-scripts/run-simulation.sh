@@ -85,6 +85,9 @@ ssh $A_SSH rm -rf $TMP_DIR
 
 ###################
 
-tar zcf "./logs-`date +%y%m%d_%H%M%S`.tar.gz" ./logs
+TIMESTAMP=`date +%y%m%d_%H%M%S`
+tar zcf "./${TIMESTAMP}-logs.tar.gz" ./logs
+sh ./print-lastscore.sh > "./${TIMESTAMP}-score.txt"
+
 
 sh ./print-lastscore.sh
