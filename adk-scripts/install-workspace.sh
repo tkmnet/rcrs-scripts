@@ -26,6 +26,7 @@ GITHUB_CONTENTS='https://raw.githubusercontent.com/tkmnet/rcrs-scripts/master/ad
 $WGET ${GITHUB_CONTENTS}.build.sh
 $WGET ${GITHUB_CONTENTS}.start.sh
 $WGET ${GITHUB_CONTENTS}.libs-update.sh
+chmod a+x gradlew
 cd ..
 
 cd ..
