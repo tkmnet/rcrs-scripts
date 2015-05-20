@@ -2,7 +2,7 @@
 
 cd `dirname $0`
 
-. functions.sh
+. qfunctions.sh
 
 processArgs $*
 
