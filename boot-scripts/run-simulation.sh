@@ -45,7 +45,7 @@ ssh $F_SSH "cd $TMP_DIR ; ./precompute.sh 1 0 0 0 0 0 $MY_IP" &
 ssh $P_SSH "cd $TMP_DIR ; ./precompute.sh 0 0 1 0 0 0 $MY_IP" &
 ssh $A_SSH "cd $TMP_DIR ; ./precompute.sh 0 0 0 0 1 0 $MY_IP" &
 
-#sleep 120
+sleep 120
 
 kill $PIDS
 sh ./kill.sh
@@ -85,5 +85,6 @@ ssh $A_SSH rm -rf $TMP_DIR
 
 ###################
 
+tar zcf "./logs-`date +%y%m%d_%H%M%S`.tar.gz" ./logs
 
 sh ./print-lastscore.sh
