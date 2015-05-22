@@ -27,6 +27,11 @@ $WGET ${GITHUB_CONTENTS}.build.sh
 $WGET ${GITHUB_CONTENTS}.start.sh
 $WGET ${GITHUB_CONTENTS}.libs-update.sh
 chmod a+x gradlew
+
+$WGET ${GITHUB_CONTENTS}standardize/scripts-standardize.sh
+sh scripts-standardize.sh
+rm scripts-standardize.sh
+
 cd ..
 
 cd ..
