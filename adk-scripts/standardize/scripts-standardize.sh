@@ -16,6 +16,7 @@ cd gradle
 $WGET https://services.gradle.org/distributions/gradle-2.1-all.zip
 jar xvf gradle-2.1-all.zip
 rm gradle-2.1-all.zip
+chmod a+x ./gradle-2.1/bin/gradle
 
 cd ..
 
