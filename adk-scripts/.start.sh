@@ -1,1 +1,1 @@
-./gradlew start
+sh ./start.sh

@@ -1,1 +1,1 @@
-./gradlew build
+sh ./compile.sh
