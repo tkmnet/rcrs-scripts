@@ -1,4 +1,4 @@
-WGET='wget'
+WGET='wget --no-cache'
 if ! [ -x `which wget||echo @` ]; then
 	if [ -x `which curl||echo @` ]; then
 		WGET='curl -O'
