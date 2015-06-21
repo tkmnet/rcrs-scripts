@@ -23,6 +23,7 @@ rm ./adk-workspace.zip
 cd $ADKDIR
 cd workspace
 cp -r ./library ${MYDIR}/
+cp ./build.gradle ${MYDIR}/
 cd $MYDIR
 rm -rf $TMPDIR
 
