@@ -67,7 +67,7 @@ chmod a+x kill.sh
 chmod a+x print-lastscore.sh
 cd ..
 
-find ./ -name "build*.xml" | xargs sed -i -e 's/<javac\(.*\)>/<javac\1  encoding="UTF-8">/g'
+#find ./ -name "build*.xml" | xargs sed -i -e 's/<javac\(.*\)>/<javac\1  encoding="UTF-8">/g'
 find ./ -name "build*.xml" | xargs sed -i -e 's/\(.*\)\(importClass(org.apache.tools.ant.types.Path);\)/\1load("nashorn:mozilla_compat.js");\n\1\2/g'
 
 
