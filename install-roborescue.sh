@@ -1,11 +1,11 @@
 #!/bin/sh
 
 WGET='wget --no-check-certificate'
-if ! [ -x `which wget||echo @` ]; then
-	if [ -x `which curl||echo @` ]; then
+if ! [ -x `which wget||echo /dev/null` ]; then
+	if [ -x `which curl||echo /dev/null` ]; then
 		WGET='curl -O'
 	else
-		if ! [ -x `which apt-get||echo @` ]; then
+		if ! [ -x `which apt-get||echo /dev/null` ]; then
 			echo "[!] This script repuire apt-get."
 			exit
 		fi
@@ -15,7 +15,7 @@ if ! [ -x `which wget||echo @` ]; then
 	fi
 fi
 
-if ! [ -x `which javac||echo @` ]; then
+if ! [ -x `which javac||echo /dev/null` ]; then
 	if [ `javac -version 2>&1 | grep -o 'javac 1.8.*' | wc -l` != 1 ]; then
 		echo "[!] This script repuire java8."
 		echo "Please install OracleJDK 8."
@@ -27,8 +27,8 @@ if ! [ -x `which javac||echo @` ]; then
 	fi
 fi
 
-if ! [ -x `which ant||echo @`  -a -x `which xterm||echo @` -a -x `which tar||echo @` -a -x `which gzip||echo @` ]; then
-	if ! [ -x `which apt-get||echo @` ]; then
+if ! [ -x `which ant||echo /dev/null`  -a -x `which xterm||echo /dev/null` -a -x `which tar||echo /dev/null` -a -x `which gzip||echo /dev/null` ]; then
+	if ! [ -x `which apt-get||echo /dev/null` ]; then
 		echo "[!] This script repuire apt-get."
 		exit
 	fi
