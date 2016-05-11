@@ -30,14 +30,14 @@ rm ./roborescue-v1.2.tar.gz
 cd ./roborescue-v1.2
 
 $WGET 'http://ftp.tsukuba.wide.ad.jp/software/apache//ant/binaries/apache-ant-1.9.7-bin.tar.gz'
-tar zxvf ./apache-ant-1.9.6-bin.tar.gz
-rm ./apache-ant-1.9.6-bin.tar.gz
+tar zxvf ./apache-ant-1.9.7-bin.tar.gz
+rm ./apache-ant-1.9.7-bin.tar.gz
 
 $WGET https://raw.githubusercontent.com/tkmnet/rcrs-scripts/master/fix-roborescue.sh
 sh ./fix-roborescue.sh -y
 rm ./fix-roborescue.sh
 
-./apache-ant-1.9.6/bin/ant complete-build
+./apache-ant-1.9.7/bin/ant complete-build
 
 echo "Done."
 echo "RCRS Server is installed to '`pwd -P`'"
