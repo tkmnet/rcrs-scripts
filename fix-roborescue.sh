@@ -30,7 +30,7 @@ if [ $# -eq 1 ]; then
 fi
 
 if [ $yesflag -eq 0 ]; then
-	echo -n 'Really want to fix? [y/N] > '
+    echo -n 'Really run fixing? (in some cases, files is destroyed) [y/N] > '
 	read answer
 else
 	answer='y'
@@ -61,14 +61,18 @@ $WGET https://raw.githubusercontent.com/tkmnet/rcrs-scripts/master/boot-scripts/
 $WGET https://raw.githubusercontent.com/tkmnet/rcrs-scripts/master/boot-scripts/start-comprun.sh >/dev/null 2>&1
 $WGET https://raw.githubusercontent.com/tkmnet/rcrs-scripts/master/boot-scripts/kill.sh >/dev/null 2>&1
 $WGET https://raw.githubusercontent.com/tkmnet/rcrs-scripts/master/boot-scripts/print-lastscore.sh >/dev/null 2>&1
-$WGET https://raw.githubusercontent.com/tkmnet/rcrs-scripts/master/boot-scripts/qfunctions.sh >/dev/null 2>&1
+$WGET https://raw.githubusercontent.com/tkmnet/rcrs-scripts/master/boot-scripts/noXterm-functions.sh >/dev/null 2>&1
+$WGET https://raw.githubusercontent.com/tkmnet/rcrs-scripts/master/boot-scripts/noGUI-functions.sh >/dev/null 2>&1
+$WGET https://raw.githubusercontent.com/tkmnet/rcrs-scripts/master/boot-scripts/noGUI-start-precompute.sh >/dev/null 2>&1
+$WGET https://raw.githubusercontent.com/tkmnet/rcrs-scripts/master/boot-scripts/noGUI-start-comprun.sh >/dev/null 2>&1
 chmod a+x start*.sh
 chmod a+x kill.sh
 chmod a+x print-lastscore.sh
 cd ..
 
 #find ./ -name "build*.xml" | xargs sed -i -e 's/<javac\(.*\)>/<javac\1  encoding="UTF-8">/g'
-find ./ -name "build*.xml" | xargs sed -i -e 's/\(.*\)\(importClass(org.apache.tools.ant.types.Path);\)/\1load("nashorn:mozilla_compat.js");\n\1\2/g'
+find ./ -name "build*.xml" | xargs sed -i -e 's/\(.*\)\(importClass(org.apache.tools.ant.types.Path);\)/\1load("nashorn:mozilla_compat.js");
+\1\2/g'
 
 
 touch .var01.tkmnet.fixed

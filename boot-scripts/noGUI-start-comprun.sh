@@ -2,7 +2,7 @@
 
 cd `dirname $0`
 
-. noXterm-functions.sh
+. noGUI-functions.sh
 
 processArgs $*
 

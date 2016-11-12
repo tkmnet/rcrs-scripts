@@ -53,7 +53,29 @@ cd RSLB2; ../../.builder/ant/bin/ant jar
 cd ..
 cd ..
 
+mkdir map
+mkdir scenario
+mkdir team
+
+cp -r RMASBench/RSLB2 team/sampleBMS
+cd team/sampleBMS
+cp dist/lib/bms-1.0.1-SNAPSHOT-all.jar lib/
+cp dist/lib/kernel.jar lib/
+cp dist/lib/standard.jar lib/
+cp dist/lib/rescuecore2.jar lib/
+cd src/main/java/RSLBench/
+cp -r Algorithms/BMS ./
+rm -rf Algorithms
+mkdir Algorithms
+mv BMS Algorithms/
+cd ../../../../
+ant clean
 
 
+
+
+
+
+echo
 echo "Done."
 echo "RMAS Bench is installed to '`pwd -P`'"

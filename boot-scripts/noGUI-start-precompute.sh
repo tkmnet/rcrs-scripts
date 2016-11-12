@@ -2,7 +2,7 @@
 
 cd `dirname $0`
 
-. noXterm-functions.sh
+. noGUI-functions.sh
 
 processArgs $*
 
@@ -10,8 +10,7 @@ processArgs $*
 rm -f $LOGDIR/*.log
 
 #startGIS
-startKernel --nomenu --autorun
-startSims
+startKernel --nomenu
 
 echo "Start your agents"
 waitFor $LOGDIR/kernel.log "Kernel has shut down" 30

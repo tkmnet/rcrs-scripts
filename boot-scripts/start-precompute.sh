@@ -2,7 +2,7 @@
 
 cd `dirname $0`
 
-. qfunctions.sh
+. noXterm-functions.sh
 
 processArgs $*
 
