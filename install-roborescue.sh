@@ -19,8 +19,8 @@ if ! [ -x `which javac||echo /dev/null` ]; then
 	fi
 fi
 
-if ! [ -x `which xterm||echo /dev/null` -a -x `which tar||echo /dev/null` -a -x `which gzip||echo /dev/null` ]; then
-    echo "[!] This script repuire tar,gzip,xterm."
+if ! [ -x `which tar||echo /dev/null` -a -x `which gzip||echo /dev/null` ]; then
+    echo "[!] This script repuire tar,gzip."
     exit
 fi
 
