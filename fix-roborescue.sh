@@ -65,6 +65,7 @@ $WGET https://raw.githubusercontent.com/tkmnet/rcrs-scripts/master/boot-scripts/
 $WGET https://raw.githubusercontent.com/tkmnet/rcrs-scripts/master/boot-scripts/noGUI-functions.sh >/dev/null 2>&1
 $WGET https://raw.githubusercontent.com/tkmnet/rcrs-scripts/master/boot-scripts/noGUI-start-precompute.sh >/dev/null 2>&1
 $WGET https://raw.githubusercontent.com/tkmnet/rcrs-scripts/master/boot-scripts/noGUI-start-comprun.sh >/dev/null 2>&1
+chmod a+x noGUI-start*.sh
 chmod a+x start*.sh
 chmod a+x kill.sh
 chmod a+x print-lastscore.sh
