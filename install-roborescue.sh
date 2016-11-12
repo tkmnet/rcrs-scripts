@@ -29,7 +29,7 @@ tar zxvf ./roborescue-v1.2.tar.gz
 rm ./roborescue-v1.2.tar.gz
 cd ./roborescue-v1.2
 
-$WGET 'http://ftp.tsukuba.wide.ad.jp/software/apache//ant/binaries/apache-ant-1.9.7-bin.tar.gz'
+$WGET 'http://ftp.riken.jp/net/apache//ant/binaries/apache-ant-1.9.7-bin.tar.gz'
 tar zxvf ./apache-ant-1.9.7-bin.tar.gz
 rm ./apache-ant-1.9.7-bin.tar.gz
 
