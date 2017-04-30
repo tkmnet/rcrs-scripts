@@ -43,6 +43,7 @@ sh ./fix-roborescue.sh -y
 rm ./fix-roborescue.sh
 
 export LANG=en_US.UTF-8
+export JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF8
 ./${ANTVER}/bin/ant complete-build
 
 echo "Done."
