@@ -42,7 +42,7 @@ $WGET https://raw.githubusercontent.com/tkmnet/rcrs-scripts/master/fix-roborescu
 sh ./fix-roborescue.sh -y
 rm ./fix-roborescue.sh
 
-./${ANTVER}/bin/ant complete-build
+LANG=en_US.UTF-8 ./${ANTVER}/bin/ant complete-build
 
 echo "Done."
 echo "RCRS Server is installed to '`pwd -P`'"
