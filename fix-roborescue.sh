@@ -75,6 +75,9 @@ cd ..
 find ./ -name "build*.xml" | xargs sed -i -e 's/\(.*\)\(importClass(org.apache.tools.ant.types.Path);\)/\1load("nashorn:mozilla_compat.js");\
 \1\2/g'
 
+$WGET https://raw.githubusercontent.com/tkmnet/rcrs-scripts/master/patch/fix-StreamConnection.patch >/dev/null 2>&1
+patch -u -p0 < fix-StreamConnection.patch
+
 
 touch .var01.tkmnet.fixed
 echo "Done."

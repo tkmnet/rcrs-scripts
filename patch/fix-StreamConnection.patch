@@ -1,0 +1,53 @@
+--- modules/rescuecore2/src/rescuecore2/connection/StreamConnection.java.org	2017-11-21 20:04:32.918242649 +0900
++++ modules/rescuecore2/src/rescuecore2/connection/StreamConnection.java	2017-11-21 20:47:19.343299217 +0900
+@@ -4,6 +4,7 @@
+ import static rescuecore2.misc.EncodingTools.readInt32;
+ import static rescuecore2.misc.EncodingTools.readBytes;
+ 
++import java.io.FileWriter;
+ import java.io.InputStream;
+ import java.io.OutputStream;
+ import java.io.IOException;
+@@ -100,16 +101,32 @@
+         }
+     }
+ 
++    private synchronized static void writeBrokenPacketLog(int size, byte[] bytes) {
++      String header = "[SIZE:" + size + "]";
++      StringBuilder sb = new StringBuilder(header.length() + (bytes.length * 2));
++      sb.append(header);
++      for(byte b: bytes) { sb.append(String.format("%02x", b)); }
++      try {
++        FileWriter fw = new FileWriter("logs" + java.io.File.separator + "broken_packet.log", true);
++        fw.write(sb.toString() + System.getProperty("line.separator"));
++        fw.close();
++      } catch (IOException ex) {
++        ex.printStackTrace();
++      }
++    }
++
+     /**
+        Worker thread that reads from the input stream.
+     */
+     private class ReadThread extends WorkerThread {
+         @Override
+         protected boolean work() {
++            byte[] buffer = {};
++            int size = -1;
+             try {
+-                int size = readInt32(in);
++                size = readInt32(in);
+                 if (size > 0) {
+-                    byte[] buffer = readBytes(size, in);
++                    buffer = readBytes(size, in);
+                     bytesReceived(buffer);
+                 }
+                 return true;
+@@ -118,6 +135,7 @@
+                 return true;
+             }
+             catch (EOFException e) {
++                writeBrokenPacketLog(size, buffer);
+                 return false;
+             }
+             catch (IOException e) {
