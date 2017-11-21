@@ -1,5 +1,5 @@
---- modules/rescuecore2/src/rescuecore2/connection/StreamConnection.java.org	2017-11-21 20:04:32.918242649 +0900
-+++ modules/rescuecore2/src/rescuecore2/connection/StreamConnection.java	2017-11-21 20:47:19.343299217 +0900
+--- modules/rescuecore2/src/rescuecore2/connection/StreamConnection.java.org	2017-11-22 08:08:24.068684971 +0900
++++ modules/rescuecore2/src/rescuecore2/connection/StreamConnection.java	2017-11-22 08:06:23.224345754 +0900
 @@ -4,6 +4,7 @@
  import static rescuecore2.misc.EncodingTools.readInt32;
  import static rescuecore2.misc.EncodingTools.readBytes;
@@ -43,11 +43,13 @@
                      bytesReceived(buffer);
                  }
                  return true;
-@@ -118,6 +135,7 @@
+@@ -118,6 +135,9 @@
                  return true;
              }
              catch (EOFException e) {
-+                writeBrokenPacketLog(size, buffer);
++                if (size != -1) {
++                    writeBrokenPacketLog(size, buffer);
++                }
                  return false;
              }
              catch (IOException e) {
