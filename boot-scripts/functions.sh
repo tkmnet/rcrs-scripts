@@ -147,7 +147,7 @@ function startKernel {
     makeClasspath $BASEDIR/jars $BASEDIR/lib
 
     #xterm -T kernel -e "/bin/sh -c 'java -Xmx2048m -cp $CP -Dlog4j.log.dir=$LOGDIR kernel.StartKernel $KERNEL_OPTIONS 2>&1 | tee $LOGDIR/kernel-out.log'" &
-    xterm -T kernel -e "/bin/sh -c 'java -Xmx54m -XX:OnOutOfMemoryError=\"echo kernel : Score: -1 >> ${LOGDIR}/kernel.log; echo kernel : Kernel has shut down - OOME >> ${LOGDIR}/kernel.log; kill -9 %p\" -cp $CP -Dlog4j.log.dir=$LOGDIR kernel.StartKernel $KERNEL_OPTIONS 2>&1 | tee $LOGDIR/kernel-out.log'" &
+    xterm -T kernel -e "/bin/sh -c 'java -Xmx54m -XX:OnOutOfMemoryError=\"echo kernel : Score: -1 >> ${LOGDIR}/kernel.log; echo kernel : Kernel is shutting down - OOME >> ${LOGDIR}/kernel.log; kill -9 %p\" -cp $CP -Dlog4j.log.dir=$LOGDIR kernel.StartKernel $KERNEL_OPTIONS 2>&1 | tee $LOGDIR/kernel-out.log'" &
     PIDS="$PIDS $!"
     # Wait for the kernel to start
     waitFor $LOGDIR/kernel.log "Listening for connections"
