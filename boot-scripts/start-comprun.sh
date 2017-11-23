@@ -6,6 +6,10 @@ cd `dirname $0`
 
 processArgs $*
 
+if ! [ -x `which timeout||echo /dev/null` ]; then
+  function timeout() { perl -e 'alarm shift; exec @ARGV' "$@"; }
+fi
+
 # Delete old logs
 rm -f $LOGDIR/*.log
 
