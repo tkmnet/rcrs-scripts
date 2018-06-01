@@ -29,9 +29,9 @@ fi
 ANTVER=`${WGETSOUT} "http://ftp.riken.jp/net/apache//ant/binaries/" | grep -s 'a.* href=".*-bin\.tar\.gz"' | sed -e 's/^.* href="\(apache-ant-[^>]*\)".*$/\1/' | head -1 | sed -e 's/-bin\.tar\.gz$//'`
 #ANTVER='apache-ant-1.10.0'
 
-$WGET http://downloads.sourceforge.net/project/roborescue/roborescue/v1.2/roborescue-v1.2.tar.gz
-tar zxvf ./roborescue-v1.2.tar.gz
-rm ./roborescue-v1.2.tar.gz
+$WGET http://downloads.sourceforge.net/project/roborescue/roborescue/v1.2/roborescue-v1.2.tgz
+tar zxvf ./roborescue-v1.2.tgz
+rm ./roborescue-v1.2.tgz
 cd ./roborescue-v1.2
 
 $WGET "http://ftp.riken.jp/net/apache//ant/binaries/${ANTVER}-bin.tar.gz"
