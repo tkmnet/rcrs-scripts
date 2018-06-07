@@ -42,9 +42,9 @@ $WGET "http://ftp.riken.jp/net/apache//ant/binaries/${ANTVER}-bin.tar.gz"
 tar zxvf ./${ANTVER}-bin.tar.gz
 rm ./${ANTVER}-bin.tar.gz
 
-$WGET https://raw.githubusercontent.com/tkmnet/rcrs-scripts/master/fix-roborescue.sh
-sh ./fix-roborescue.sh -y
-rm ./fix-roborescue.sh
+#$WGET https://raw.githubusercontent.com/tkmnet/rcrs-scripts/master/fix-roborescue.sh
+#sh ./fix-roborescue.sh -y
+#rm ./fix-roborescue.sh
 
 export LANG=en_US.UTF-8
 export JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF8
