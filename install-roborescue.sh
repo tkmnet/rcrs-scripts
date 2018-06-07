@@ -48,7 +48,8 @@ rm ./${ANTVER}-bin.tar.gz
 
 export LANG=en_US.UTF-8
 export JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF8
-./${ANTVER}/bin/ant complete-build
+#./${ANTVER}/bin/ant complete-build
+./${ANTVER}/bin/ant clean clean-all oldsims compile jars
 
 echo "Done."
 echo "RCRS Server is installed to '`pwd -P`'"
