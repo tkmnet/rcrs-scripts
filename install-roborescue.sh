@@ -30,7 +30,7 @@ ANTVER=`${WGETSOUT} "http://ftp.riken.jp/net/apache//ant/binaries/" | grep -s 'a
 #ANTVER='apache-ant-1.10.0'
 
 #$WGET http://downloads.sourceforge.net/project/roborescue/roborescue/v1.2/roborescue-v1.2.tgz
-$WGET https://github.com/roborescue/rcrs-server/archive/master.zip
+$WGET https://github.com/tkmnet/rcrs-server/archive/master.zip
 #tar zxvf ./roborescue-v1.2.tgz
 unzip master.zip
 #rm ./roborescue-v1.2.tgz
